@@ -40,10 +40,11 @@ $(document).on("click", ".gifButton", function () {
         // console.log(response.data)
         var myGifs = response.data;
         // console.log(myGifs)
+        var gifArea = $("#gif-container");
+        gifArea.empty();
         for(var i = 0; i < myGifs.length; i++){
            var stillURL = myGifs[i].images.fixed_height_still.url;
         // console.log(stillURL)
-           var gifArea = $("#gif-container");
            var newGif = $("<img src= " + stillURL+ ">");
            gifArea.append(newGif);
         }
