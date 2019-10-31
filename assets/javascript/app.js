@@ -30,5 +30,13 @@ function newButton(input) {
 
 
 $(document).on("click", ".gifButton", function () {
-    console.log($(this).text())
+    // console.log($(this).text())
+    var q = $(this).text();
+    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ScYdYSjTsxqB7o2YM5iaWEabmeeUq815&q="+ q + "&limit=10";		
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
+        console.log(response)
+    })
 })
