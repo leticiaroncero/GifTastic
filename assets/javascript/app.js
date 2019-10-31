@@ -4,8 +4,10 @@ var buttonContainer = $("#button-container");
 
 
 for (var i = 0; i < topics.length; i++) {
-    var gifButton = $("<button>").text(topics[i]);
-    buttonContainer.append(gifButton)
+    var gifButton = $("<button>");
+    gifButton.text(topics[i]);
+    gifButton.attr("id", topics[i]).addClass("gifButton");
+    buttonContainer.append(gifButton);
 };
 
 
@@ -20,8 +22,13 @@ $("#gif-submit").on("click", function (event) {
 });
 
 function newButton(input) {
-    var gifButton = $("<button>").text(input);
+    var gifButton = $("<button>")
+    gifButton.text(input);
+    gifButton.attr("id", input).addClass("gifButton");
     buttonContainer.append(gifButton);
 };
 
 
+$(document).on("click", ".gifButton", function () {
+    console.log($(this).text())
+})
