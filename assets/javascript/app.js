@@ -42,11 +42,12 @@ $(document).on("click", ".gifButton", function () {
         // console.log(myGifs)
         var gifArea = $("#gif-container");
         gifArea.empty();
-        for(var i = 0; i < myGifs.length; i++){
-           var stillURL = myGifs[i].images.fixed_height_still.url;
-        // console.log(stillURL)
-           var newGif = $("<img src= " + stillURL+ ">");
-           gifArea.append(newGif);
+        for (var i = 0; i < myGifs.length; i++) {
+            var stillURL = myGifs[i].images.fixed_height_still.url;
+            // console.log(stillURL)
+            var newGif = $("<img src= " + stillURL + ">");
+            newGif.attr("data-still", stillURL).attr("data-state", "still");
+            gifArea.append(newGif);
         }
     })
 })
