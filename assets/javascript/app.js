@@ -30,16 +30,13 @@ function newButton(input) {
 
 
 $(document).on("click", ".gifButton", function () {
-    // console.log($(this).text())
     var q = $(this).text();
     queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ScYdYSjTsxqB7o2YM5iaWEabmeeUq815&q=" + q + "&limit=10";
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        // console.log(response.data)
         var myGifs = response.data;
-        // console.log(myGifs)
         var gifArea = $("#gif-container");
         gifArea.empty();
         for (var i = 0; i < myGifs.length; i++) {
