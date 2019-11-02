@@ -1,4 +1,4 @@
-var topics = ["halloween", "pumpkin", "candy", "ghost"];
+var topics = ["halloween", "pumpkin", "candy", "ghost", "skeleton", "bat", "mummy", "zombie"];
 
 var buttonContainer = $("#button-container");
 
