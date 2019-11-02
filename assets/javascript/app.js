@@ -44,7 +44,7 @@ $(document).on("click", ".gifButton", function () {
             var animateURL = myGifs[i].images.fixed_height_downsampled.url;
             var rating = myGifs[i].rating;
 
-            var displayRating = $("<span>").text("Rating: " + rating);
+            var displayRating = $("<div>").text("Rating: " + rating).addClass("rating");
             var newGif = $("<img src= " + stillURL + ">");
             newGif.attr("data-still", stillURL).attr("data-animate", animateURL).attr("data-state", "still");
             newGif.addClass("img");

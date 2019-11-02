@@ -1,0 +1,25 @@
+.gif-block {
+    position: relative;
+    display: inline-block;
+}
+
+.rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-left: 30px;
+}
+
+.img {
+    margin: 30px 5px 5px 5px;
+}
+
+aside {
+    width: 30%;
+    float: right;
+    position: relative;
+}
+
+#gif-container {
+    width: 70%;
+}
