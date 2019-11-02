@@ -31,7 +31,7 @@ function newButton(input) {
 
 $(document).on("click", ".gifButton", function () {
     var q = $(this).text();
-    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ScYdYSjTsxqB7o2YM5iaWEabmeeUq815&q=" + q + "&limit=10";
+    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ScYdYSjTsxqB7o2YM5iaWEabmeeUq815&q=" + q + "&limit=10&rating=pg";
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -42,11 +42,16 @@ $(document).on("click", ".gifButton", function () {
         for (var i = 0; i < myGifs.length; i++) {
             var stillURL = myGifs[i].images.fixed_height_still.url;
             var animateURL = myGifs[i].images.fixed_height_downsampled.url;
+            var rating = myGifs[i].rating;
 
+            var displayRating = $("<span>").text("Rating: " + rating);
             var newGif = $("<img src= " + stillURL + ">");
             newGif.attr("data-still", stillURL).attr("data-animate", animateURL).attr("data-state", "still");
             newGif.addClass("img");
-            gifArea.append(newGif);
+
+            var imageBlock = $("<div>").addClass("gif-block").append(newGif).append(displayRating);
+
+            gifArea.append(imageBlock);
         }
     })
 })
