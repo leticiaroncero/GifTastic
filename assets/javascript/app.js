@@ -6,7 +6,7 @@ var buttonContainer = $("#button-container");
 for (var i = 0; i < topics.length; i++) {
     var gifButton = $("<button>");
     gifButton.text(topics[i]);
-    gifButton.attr("id", topics[i]).addClass("gifButton");
+    gifButton.attr("id", topics[i]).addClass("gif-button btn btn-info");
     buttonContainer.append(gifButton);
 };
 
@@ -24,12 +24,12 @@ $("#gif-submit").on("click", function (event) {
 function newButton(input) {
     var gifButton = $("<button>")
     gifButton.text(input);
-    gifButton.attr("id", input).addClass("gifButton");
+    gifButton.attr("id", input).addClass("gif-button");
     buttonContainer.append(gifButton);
 };
 
 
-$(document).on("click", ".gifButton", function () {
+$(document).on("click", ".gif-button", function () {
     var q = $(this).text();
     queryURL = "https://api.giphy.com/v1/gifs/search?api_key=ScYdYSjTsxqB7o2YM5iaWEabmeeUq815&q=" + q + "&limit=10&rating=pg";
     $.ajax({
@@ -44,14 +44,19 @@ $(document).on("click", ".gifButton", function () {
             var animateURL = myGifs[i].images.fixed_height_downsampled.url;
             var rating = myGifs[i].rating;
 
-            var displayRating = $("<div>").text("Rating: " + rating).addClass("rating");
+            var cardBlock = $("<div>").addClass("card");
+
             var newGif = $("<img src= " + stillURL + ">");
             newGif.attr("data-still", stillURL).attr("data-animate", animateURL).attr("data-state", "still");
             newGif.addClass("img");
+            cardBlock.append(newGif)
 
-            var imageBlock = $("<div>").addClass("gif-block").append(newGif).append(displayRating);
+            var displayRating = $("<p>").text("Rating: " + rating).addClass("card-text");
+            var cardBody = $("<div>").addClass("card-body");
+            cardBody.append(displayRating);
+            cardBlock.append(cardBody);
 
-            gifArea.append(imageBlock);
+            gifArea.append(cardBlock);
         }
     })
 })

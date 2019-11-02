@@ -10,8 +10,9 @@
     padding-left: 30px;
 }
 
-.img {
-    margin: 30px 5px 5px 5px;
+.card {
+    margin: 10px 5px;
+    display: inline-block;
 }
 
 aside {
@@ -22,4 +23,12 @@ aside {
 
 #gif-container {
     width: 70%;
+}
+
+.gif-button {
+    margin: 5px;
+}
+
+#button-container {
+    padding: 10px;
 }
