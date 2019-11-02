@@ -44,10 +44,28 @@ $(document).on("click", ".gifButton", function () {
         gifArea.empty();
         for (var i = 0; i < myGifs.length; i++) {
             var stillURL = myGifs[i].images.fixed_height_still.url;
-            // console.log(stillURL)
+            var animateURL = myGifs[i].images.fixed_height_downsampled.url;
+
             var newGif = $("<img src= " + stillURL + ">");
-            newGif.attr("data-still", stillURL).attr("data-state", "still");
+            newGif.attr("data-still", stillURL).attr("data-animate", animateURL).attr("data-state", "still");
+            newGif.addClass("img");
             gifArea.append(newGif);
         }
     })
 })
+
+$(document).on("click", ".img", function (response) {
+    var imageClicked = $(this);
+
+    var dataState = imageClicked.attr('data-state');
+    var dataStill = imageClicked.attr('data-still');
+    var dataAnimate = imageClicked.attr('data-animate');
+
+    if (dataState === "still") {
+        imageClicked.attr('data-state', "animate");
+        imageClicked.attr("src", dataAnimate);
+    } else {
+        imageClicked.attr('data-state', "still");
+        imageClicked.attr("src", dataStill);
+    };
+});
