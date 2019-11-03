@@ -17,8 +17,8 @@ A dynamic web page that populates with gifs from GIPHY. When the user clicks on 
 
 ## Essential Code
 
-Logic to do an API request using AJAX and process the response:
+Logic to do an API request using AJAX and to process the response:
 ![AJAX request](assets/screenshots/ajax_call.png "API request")
 
-Logic to make animate or stop playing the gif upon clicking the image:
+Logic to animate or stop playing the gif upon clicking the image:
 ![GIF state](assets/screenshots/gif_state.png "GIF state")
