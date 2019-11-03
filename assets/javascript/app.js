@@ -10,7 +10,7 @@ for (var i = 0; i < topics.length; i++) {
 
 $("#gif-submit").on("click", function (event) {
     event.preventDefault();
-    var gifInput = $("#gif-search").val().trim();
+    var gifInput = $("#gif-search").val().trim().toLowerCase();
     if (gifInput.length !== 0 && !topics.includes(gifInput)) {
         topics.push(gifInput);
         newButton(gifInput);
